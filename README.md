@@ -58,6 +58,7 @@ An example of performing label fusion of three atlases:
 ./labelTransfer -train orig_NL001_L aseg_NL001_L orig_NL002_L aseg_NL002_L orig_NL003_L aseg_NL003_L -flow trans_AD001_L_NL001_L.flow trans_AD001_L_NL002_L.flow trans_AD001_L_NL003_L.flow -test orig_AD001_L -output latrseg_AD001_L -nlabels 2 -grayavg 70.0 -siftavg 1.0
 ```
 
+Some data examples can be found [here](https://github.com/DanielLeee/intflow/releases/download/data/example_data.zip). The original code, obsolete though, can be found [here](https://github.com/DanielLeee/intflow/releases/download/data/replicate.zip) if you are interested in replicating the results deterministically.
 
 
 ## Citation
