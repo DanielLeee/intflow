@@ -18,7 +18,7 @@ Specify any additional compilation flags in `Makefile` and run:
 make
 ```
 
-No libraries such as OpenCV is required.
+No libraries such as OpenCV are required.
 
 Only the ANALYZE75 format is supported.
 
