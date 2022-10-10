@@ -6,24 +6,24 @@ using namespace std;
 
 void OutputEnergyFile(string fileName, T_input energy)
 {
-	ofstream fout(fileName);
+    ofstream fout(fileName);
 
-	fout << energy << endl;
+    fout << energy << endl;
 
-	fout.close();
+    fout.close();
 
-	return;
+    return;
 }
 
 void CalcSIFTFlowAndWarp(Image3DWithSeg* fix, Image3DWithSeg* mov, string outputFlowName, string outputEnergyName)
 {
-	T_input energy;
+    T_input energy;
 
-	SIFT_FLOW_ALGO(fix, mov, outputFlowName, energy);
+    SIFT_FLOW_ALGO(fix, mov, outputFlowName, energy);
 
-	OutputEnergyFile(outputEnergyName, energy);
+    OutputEnergyFile(outputEnergyName, energy);
 
-	return;
+    return;
 }
 
 int findPara(const char *pattern, int argc, char** argv)
@@ -37,9 +37,9 @@ int findPara(const char *pattern, int argc, char** argv)
 
 int main(int argc, char** argv)
 {
-	// -fix -mov -o -alpha -gamma -nlevels -wsize -niter -nscale -grayavg -siftavg
-	int fixi, movi, outputi, alphai, gammai, nlevelsi, wsizei, niteri, nscalei, grayavgi, siftavgi;
-	
+    // -fix -mov -o -alpha -gamma -nlevels -wsize -niter -nscale -grayavg -siftavg
+    int fixi, movi, outputi, alphai, gammai, nlevelsi, wsizei, niteri, nscalei, grayavgi, siftavgi;
+
     fixi = findPara("-fix", argc, argv);
     movi = findPara("-mov", argc, argv);
     outputi = findPara("-o", argc, argv);
@@ -69,19 +69,19 @@ int main(int argc, char** argv)
     if (siftavgi != -1)
         SIFTAvgBaseLine = atof(argv[siftavgi + 1]);
 
-	Image3DWithSeg* testIMG = NULL;
-	Image3DWithSeg* trainIMG = NULL;
+    Image3DWithSeg* testIMG = NULL;
+    Image3DWithSeg* trainIMG = NULL;
 
-	// Read Images
-	testIMG = new Image3DWithSeg(argv[fixi + 1], "");
-	trainIMG = new Image3DWithSeg(argv[movi + 1], "");
+    // Read Images
+    testIMG = new Image3DWithSeg(argv[fixi + 1], "");
+    trainIMG = new Image3DWithSeg(argv[movi + 1], "");
 
-	// SIFT Flow
-	cout << "SIFT Flow: " << testIMG->dataFileName << " -> " << trainIMG->dataFileName << endl;
-	CalcSIFTFlowAndWarp(testIMG, trainIMG, argv[outputi + 1], argv[outputi + 2]);
+    // SIFT Flow
+    cout << "SIFT Flow: " << testIMG->dataFileName << " -> " << trainIMG->dataFileName << endl;
+    CalcSIFTFlowAndWarp(testIMG, trainIMG, argv[outputi + 1], argv[outputi + 2]);
 
-	delete trainIMG;
-	delete testIMG;
+    delete trainIMG;
+    delete testIMG;
 
-	return 0;
+    return 0;
 }
