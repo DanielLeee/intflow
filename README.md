@@ -2,7 +2,7 @@
 
 This is the official implementation of the following paper:
 
-> [**Integrated 3d flow-based multi-atlas brain structure segmentation**](https://doi.org/10.1371/journal.pone.0270339)
+> [**Integrated 3D Flow-based Multi-atlas Brain Structure Segmentation**](https://doi.org/10.1371/journal.pone.0270339)
 > 
 > Yeshu Li, Ziming Qiu, Xingyu Fan, Xianglong Liu, Eric I-Chao Chang, Yan Xu 
 > 
